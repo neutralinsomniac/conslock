@@ -38,7 +38,7 @@ readpassword(char *password)
 	char c;
 
 	rawon();
-	while (c != '\n') {
+	while (1) {
 		r = read(0, &c, 1);
 		if (r != 1) return;
 
