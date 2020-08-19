@@ -40,7 +40,7 @@ readpassword(char *password)
 	rawon();
 	while (1) {
 		r = read(0, &c, 1);
-		if (r != 1) return;
+		if (r != 1) goto out;
 
 		switch (c) {
 			case 8:
@@ -51,17 +51,18 @@ readpassword(char *password)
 				i = 0;
 				break;
 			case '\n':
-				password[i] = 0;
 				goto out;
 			default:
 				if (i < MAX_PASS) {
 					password[i] = c;
 					i++;
 				}
+				break;
 		}
 	}
 
 out:
+	password[i] = 0;
 	rawoff();
 	return;
 }
