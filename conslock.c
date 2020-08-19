@@ -66,7 +66,8 @@ out:
 	return;
 }
 
-void main()
+void
+main()
 {
 	char password[MAX_PASS+1] = {0};
 	UserPasswd *up;
