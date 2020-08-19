@@ -12,7 +12,7 @@ void
 rawon(void)
 {
 	if(consctl < 0)
-	consctl = open("/dev/consctl", OWRITE);
+		consctl = open("/dev/consctl", OWRITE);
 	if(consctl < 0){
 		return;
 	}
